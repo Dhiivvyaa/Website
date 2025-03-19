@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        /* header content */
+        header{
+        display:flex;
+        width:100%;
+        margin:0 auto;
+        background-color: rgb(231, 229, 229);
+        justify-content:space-between;
+        align-items: center;
+        border:6px solid white;
+        border-radius: 5px;
+        position:fixed;
+        z-index:5;
+        }
+        .logo{
+            display:flex;
+        }
+        .logo img{
+            padding:5px;
+            margin:7px;
+            border:2px solid black;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .logo img:hover{
+            transform:scale(2);
+            border:2px solid black;
+        }
+        .logo h1{
+            text-align: center;
+            padding-top:40px;
+            padding-left:5px;
+            margin-left:20px;
+            text-shadow:2px 4px red;
+        }
+        .logo h1:hover{
+            cursor: pointer;
+            font-size: 40px;
+        }
+        nav ul{
+            display:flex;
+            justify-content: flex-end;
+        }
+
+        nav ul li{
+            display:flex;
+            align-items: center;
+            list-style: none;
+            padding:5px;
+            margin:10px;
+        }
+        nav ul li a{
+            text-decoration: none;
+            cursor: pointer;
+            color:black;
+            font-size: 18px;
+            margin-left: 5px;
+        }
+        nav ul li a:hover{
+            color:red;
+            font-size: 20px;
+
+        }
+        /* rightside-content */
+        .rightcontent img{
+            display:flex;
+            top:120px;
+            justify-content: left;
+            align-items: center;
+            position:relative;
+            padding-top:50px;
+            padding-bottom:135px;
+        }
+
+        /* footer */
+
+        footer{
+            width:100%;
+            position:fixed;
+            background-color: rgb(231, 228, 228);
+            padding:10px;
+            border: 4px solid white;
+            border-radius: 3px;
+            text-align: center;
+        }
+
+        .book h3{
+            display:flex;
+            padding:10px;
+            margin:0 auto;
+            align-items: center;
+            justify-content: center;
+            margin-bottom:10px;
+        }
+
+        .social div{
+            width:100%;
+            display:inline-flex;
+            margin:0 auto;
+            justify-content:space-around;
+            align-items:center;
+            padding-left:20px;
+            padding-right:20px;
+        }
+        .social{
+            align-items: center;
+            margin:0 auto;
+            display:flex;
+            justify-content: center;
+        }
+        .social div img{
+            display:flex;
+            border:3px solid red;
+            border-radius: 50%;
+        }
+        .social div a{
+            text-decoration: none;
+            color:black;
+        }
+        .social div a:hover{
+            text-decoration: none;
+            color:black;
+            cursor: pointer;
+            font-size: 20px;
+        }
+        .social div img:hover{
+            transform: scale(1.3);
+        }
+        .content{
+            display:flex;
+            width:100%;
+            position:relative;
+            margin:0 auto;
+            justify-content: space-between;
+            text-align: center;
+        }
+        .rightcontent{
+            display:flex;
+            width:50%;
+            text-align: center;
+            justify-content: center;
+        }
+        .leftcontent{
+            width:50%;
+            display:flex;
+            width:50%;
+            text-align: center;
+            justify-content: center;
+            align-items: center;   
+        }
+        .para{
+            flex-direction: column;
+            margin:0 auto;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .para h1{
+            color:red;
+            text-shadow: 3px 2px rgba(177, 8, 8, 0.591);
+        } 
+        .para p{
+            padding:3px;
+        }
+        .para button{
+            color:white;
+            background-color: red;
+            border:2px solid red;
+            border-radius: 7px;
+            padding:7px;
+            font-size: 16px;
+        }
+        .rightcontent {
+            animation: move 3s ease-out infinite;
+        }
+        @keyframes move {
+            from{transform: translateX(200px);}
+            to {transform: translateX(-700px);}
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="./images/logo.jfif" alt="logo" width="80px" heigth="80px" id="logo"> 
+                <h1>Everyday Car Care</h1>
+            </div>
+            <div class="nav_bar">
+                <nav>
+                    <ul>
+                        <li><img src="./images/homeicon.jfif" alt="user icon" width="30px" height="30px" style="border-radius: 50%; color:red; border:2px solid red;"><a href="#">Home</a></li>
+                        <li><img src="./images/serviceicon.jfif" alt="user icon" width="37px" height="28px" style="border-radius: 50%; border:2px solid red;"><a href="#">Services</a></li>
+                        <li><img src="./images/bookingicon.jfif" alt="user icon" width="30px" height="30px" style="border-radius: 50%; border:2px solid red;"><a href="./booking.html">Bookings</a></li>
+                        <li><img src="./images/login.jfif" alt="user icon" width="27px" height="27px" style="border-radius: 50%; border:2px solid red;"><a href="logout.html">Logout</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    <div class="content">  
+        <div class="rightcontent">
+            <img src="./images/bgimg4.jfif" alt="bgimage">
+        </div>
+        
+        <div class="leftcontent">
+                <br><br>
+                <div class="imagee">
+                </div>
+                <div class="para">
+                    <br><br><br><br><br>
+                    <a href="./home.html" style="text-decoration: none;"><h5> ← Back to Home</h5></a>
+                    <br>
+                    <h1>Successfull Logout</h1>
+                    <br>
+                    <p>You have been disconnected from the application.</p>
+                    <br>
+                    <a href="./login.html" style="text-decoration: none;"><button>Login Again</button></a>
+                </div>
+        </div>
+    </div>
+        
+        <footer>
+            <div class="footer">
+                <div class="social">
+                    <div class="fb">
+                       <a href="#"><img src="./images/fbicon.jfif" alt="fbicon" width="30px" height="30px;">FaceBook</a> 
+                    </div>
+                    <div class="twitter">
+                        <a href="#"><img src="./images/twicon.jfif" alt="twittericon" width="30px" height="30px;">Twitter</a>
+                    </div>
+                    <div class="whatsapp">
+                        <a href="#"><img src="./images/whatsappicon.jfif" alt="whatsappicon" width="30px" height="30px;">Whatsapp</a>
+                    </div>
+                    <div class="contact">
+                        <a href="#"><img src="./images/contact.jfif" alt="contacticon" width="30px" height="30px;">+91 1234567890</a>
+                    </div>
+                    <div class="gmail">
+                        <a href="#"><img src="./images/mailicon.jfif" alt="gmailicon" width="30px" height="30px;">Gmail</a>
+                    </div>
+
+                </div>
+
+                <div class="copyright">
+                    This contents are subjected to copyright &copy; and owned by Dhivya. 
+                </div>
+            </div>
+        </footer>
+
+    </div>
+</body>
+</html>

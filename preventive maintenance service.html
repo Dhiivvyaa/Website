@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preventive Maintenance Service</title>
+    <style>
+        header{
+            display:flex;
+            width:100%;
+            margin:0 auto;
+            background-color: rgb(231, 229, 229);
+            justify-content:space-between;
+            align-items: center;
+            border:6px solid white;
+            border-radius: 5px;
+            position:fixed;
+            z-index:5;
+        }
+        .logo{
+            display:flex;
+        }
+        .logo img{
+            padding:5px;
+            margin:7px;
+            border:2px solid black;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .logo img:hover{
+            transform:scale(2);
+            border:2px solid black;
+        }
+        .logo h1{
+            text-align: center;
+            padding-top:40px;
+            padding-left:5px;
+            margin-left:20px;
+            text-shadow:2px 4px red;
+        }
+        .logo h1:hover{
+            cursor: pointer;
+            font-size: 40px;
+        }
+        nav ul{
+            display:flex;
+            justify-content: flex-end;
+            position:relative;
+        }
+
+        nav ul li{
+            display:flex;
+            align-items: center;
+            list-style: none;
+            padding:5px;
+            margin:10px;
+        }
+        nav ul li a{
+            text-decoration: none;
+            cursor: pointer;
+            color:black;
+            font-size: 18px;
+            margin-left: 5px;
+        }
+        nav ul li a:hover{
+            color:black
+        }
+        /* boxes */
+        #content{
+            width:1000px;
+            height:1100px;
+            display:grid;
+            margin:15px auto;
+            grid-template-columns: repeat(3, 1fr);
+            background-color: white;
+            grid-auto-rows: minmax(100px, auto);
+            grid-gap:10px;
+        }
+        #content>div{
+            width:250px;
+            height:308px;
+            box-sizing: border-box;
+            background-color: red;
+            border:1px solid white;
+            text-align:center;
+            border:3px solid red;
+        }
+        #content button{
+            padding:5px;
+            margin:5px;
+            border:2px solid red;
+            background-color: red;
+            color:white;
+        }
+        main h1{
+            color:red;
+            text-shadow: 2px 3px red;
+        }
+        .goback{
+            text-align: right;
+            padding:3px;
+            margin:0px 30px;
+            cursor: pointer;
+            
+        }
+        .goback a{
+            text-decoration: none;
+            color:black;
+        }
+        .goback:hover{
+            color:red;
+        }
+        main{
+            margin:0 auto;
+            display:block;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            width:100%;
+            position:absolute;
+            top:150px;
+        }
+        main p{
+            width:1000px;
+            text-align: center;
+            justify-content: center;
+            margin:0 auto;
+            padding:20px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./images/logo.jfif" alt="logo" width="80px" heigth="80px" id="logo"> 
+            <h1>Everyday Car Care</h1>
+        </div>
+        <div class="nav_bar">
+            <nav>
+                <ul>
+                    <li><img src="./images/homeicon.jfif" alt="user icon" width="30px" height="30px" style="border-radius: 50%; color:red; border:2px solid red;"><a href="#">Home</a></li>
+
+                    <li><img src="./images/serviceicon.jfif" alt="user icon" width="37px" height="28px" style="border-radius: 50%; border:2px solid red;"><a href="#">Services</a></li>
+
+                    <li><img src="./images/bookingicon.jfif" alt="user icon" width="30px" height="30px" style="border-radius: 50%; border:2px solid red;"><a href="./booking.html">Bookings</a></li>
+                    
+                    <li><img src="./images/login.jfif" alt="user icon" width="27px" height="27px" style="border-radius: 50%; border:2px solid red;"><a href="register.html">Login/SignUp</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h3 class="goback"><a href="./services.html">←Go Back</a></h3></a>
+        <h1>Preventive Maintenance Services</h1>
+        <p class="para1">Preventive maintenance services for cars are essential to keep the vehicle running smoothly and avoid major breakdowns. These services help extend the life of the car and ensure optimal performance by addressing potential issues before they become serious problems.  </p>
+
+        <div id="content">
+
+            <div><h3>Tyre rotation </h3><a href=""><img src="./images//Tire rotation service.jfif" alt="Tyre rotation" width="244px" height="244px"></a><a href="./booking.html"><button>Book Service</button></a></div> 
+
+            <div><a href=""><img src="./images/battery check service.jfif" alt="battery check service" width="244px" height="244px"></a><h3>Battery Check Service</h3><a href="./booking.html"><button>Book Service</button></a></div>
+
+            <div><h3>Timing Belt Inspection</h3><a href=""><img src="./images/belt inspection service.jfif" alt="Timing Belt Inspection" width="244px" height="244px"><a href="./booking.html"><button>Book Service</button></a></a></div>
+
+            <div><h3>Cooling System Maintenance</h3><a href=""><img src="./images/cooling system maintennance.jfif" alt="Cooling System Maintenance" width="244px" height="244px"></a><a href="./booking.html"><button>Book Service</button></a></div>
+
+            <div><a href=""><img src="./images/wiper blade.jfif" alt="wiper blade" width="244px" height="244px"></a><h3>Wiper Blade Replacement</h3><a href="./booking.html"><button>Book Service</button></a></div> 
+
+            <div><h3>Transmission Service</h3><a href=""><img src="./images/Transmission service.jfif" alt="Transmission Service" width="244px" height="244px"></a><a href="./booking.html"><button>Book Service</button></a></div> 
+
+            <div><h3>Cabin Air filter Replacement</h3><a href=""><img src="./images/cabin air filter.jfif" alt="Cabin Air filter Replacement" width="244px" height="244px"></a><a href="./booking.html"><button>Book Service</button></a></div> 
+
+            <div><a href=""><img src="./images/battery check service.jfif" alt="battery check" width="244px" height="244px"></a><h3>Battery CHeck Services</h3><a href="./booking.html"><button>Book Service</button></a></div>
+
+            <div><h3>Oil change</h3><a href=""><img src="./images/oil change service.jfif" alt="Oil change" width="244px" height="244px"></a><a href="./booking.html"><button>Book Service</button></a></div> 
+    
+        </div>
+
+        <p>Regular preventive maintenance can reduce the risk of breakdowns, increase safety, and improve the overall performance and longevity of your vehicle.</p>
+
+    </main>
+
+</body>
+</html>

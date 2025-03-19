@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Care Service</title>
+    <style>
+        header{
+            display:flex;
+            width:100%;
+            margin:0 auto;
+            background-color: rgb(231, 229, 229);
+            justify-content:space-between;
+            align-items: center;
+            border:6px solid white;
+            border-radius: 5px;
+            position:fixed;
+            z-index:5;
+        }
+        .logo{
+            display:flex;
+        }
+        .logo img{
+            padding:5px;
+            margin:7px;
+            border:2px solid black;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .logo img:hover{
+            transform:scale(2);
+            border:2px solid black;
+        }
+        .logo h1{
+            text-align: center;
+            padding-top:40px;
+            padding-left:5px;
+            margin-left:20px;
+            text-shadow:2px 4px red;
+        }
+        .logo h1:hover{
+            cursor: pointer;
+            font-size: 40px;
+        }
+        nav ul{
+            display:flex;
+            justify-content: flex-end;
+            position:relative;
+        }
+
+        nav ul li{
+            display:flex;
+            align-items: center;
+            list-style: none;
+            padding:5px;
+            margin:10px;
+        }
+        nav ul li a{
+            text-decoration: none;
+            cursor: pointer;
+            color:black;
+            font-size: 18px;
+            margin-left: 5px;
+        }
+        nav ul li a:hover{
+            color:black
+        }
+
+        /* boxes */
+        #content{
+            width:1000px;
+            height:1100px;
+            display:grid;
+            margin:15px auto;
+            grid-template-columns: repeat(3, 1fr);
+            background-color: white;
+            grid-auto-rows: minmax(100px, auto);
+            grid-gap:10px;
+        }
+        #content>div{
+            width:250px;
+            height:308px;
+            box-sizing: border-box;
+            background-color: red;
+            border:1px solid white;
+            text-align:center;
+            border:3px solid red;
+        }
+        #content button{
+            padding:5px;
+            margin:5px;
+            border:2px solid red;
+            background-color: red;
+            color:white;
+        }
+        main h1{
+            color:red;
+            text-shadow: 2px 3px red;
+        }
+        .goback{
+            text-align: right;
+            padding:3px;
+            margin:0px 30px;
+            cursor: pointer;
+            
+        }
+        .goback a{
+            text-decoration: none;
+            color:black;
+        }
+        .goback:hover{
+            color:red;
+        }
+        main{
+            margin:0 auto;
+            display:block;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            width:100%;
+            position:absolute;
+            top:150px;
+        }
+        main p{
+            width:1000px;
+            text-align: center;
+            justify-content: center;
+            margin:0 auto;
+            padding:20px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./images/logo.jfif" alt="logo" width="80px" heigth="80px" id="logo"> 
+            <h1>Everyday Car Care</h1>
+        </div>
+        <div class="nav_bar">
+            <nav>
+                <ul>
+                    <li><img src="./images/homeicon.jfif" alt="user icon" width="30px" height="30px" style="border-radius: 50%; color:red; border:2px solid red;"><a href="#">Home</a></li>
+
+                    <li><img src="./images/serviceicon.jfif" alt="user icon" width="37px" height="28px" style="border-radius: 50%; border:2px solid red;"><a href="#">Services</a></li>
+
+                    <li><img src="./images/bookingicon.jfif" alt="user icon" width="30px" height="30px" style="border-radius: 50%; border:2px solid red;"><a href="./booking.html">Bookings</a></li>
+                    
+                    <li><img src="./images/login.jfif" alt="user icon" width="27px" height="27px" style="border-radius: 50%; border:2px solid red;"><a href="register.html">Login/SignUp</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h3 class="goback"><a href="./services.html">←Go Back</a></h3></a>
+        <h1>Car Care Services</h1>
+        <p class="para1">Car care services are essential for maintaining the performance, safety, and longevity of your vehicle. These services include a range of tasks to keep your car running smoothly and looking good. </p>
+
+        <div id="content">
+
+            <div><h3>Oil changing</h3><a href=""><img src="./images/oil_changing.jfif" alt="oil changing" width="244px" height="244px"></a><a href="./booking.html"><button>Book Service</button></a></div> 
+
+            <div><a href=""><img src="./images/wheel_alignment.jfif" alt="wheel alignment" width="244px" height="244px"></a><h3>Wheel Alignment</h3><a href="./booking.html"><button>Book Service</button></a></div>
+
+            <div><h3>Brake service</h3><a href=""><img src="./images/Brake_service.jfif" alt="brake service" width="244px" height="244px"><a href="./booking.html"><button>Book Service</button></a></a></div>
+
+            <div><h3>Interior Cleaning</h3><a href=""><img src="./images/interior_cleaning.jfif" alt="interior_cleaning" width="244px" height="244px"></a><a href="./booking.html"><button>Book Service</button></a></div>
+
+            <div><a href=""><img src="./images/car_washing.jfif" alt="car_washing" width="244px" height="244px"></a><h3>Car Washing</h3><a href="./booking.html"><button>Book Service</button></a></div> 
+
+            <div><h3>Paint Protection</h3><a href=""><img src="./images/paint_protection.jfif" alt="paint_protection" width="244px" height="244px"></a><a href="./booking.html"><button>Book Service</button></a></div> 
+
+            <div><h3>Engine Repair</h3><a href=""><img src="./images/engine_repair.jfif" alt="engine_repair" width="244px" height="244px"></a><a href="./booking.html"><button>Book Service</button></a></div> 
+
+            <div><a href=""><img src="./images/veh_inspection.jfif" alt="veh_inspection" width="244px" height="244px"></a><h3>Vehicle Inspection</h3><a href="./booking.html"><button>Book Service</button></a></div>
+
+            <div><h3>Dent Removal</h3><a href=""><img src="./images/dent_removal.jfif" alt="dent_removal" width="244px" height="244px"></a><a href="./booking.html"><button>Book Service</button></a></div> 
+    
+        </div>
+
+        <p>Regular maintenance helps to avoid costly repairs down the road and keeps your car running at its best. It's always a good idea to follow the manufacturer’s service recommendations and keep track of maintenance schedules.</p>
+
+    </main>
+    <script>
+        function setDefaultService(service) {
+            const serviceTypeSelect = document.getElementByclass("carcare");
+            serviceTypeSelect.value = service;
+        }
+
+        setDefaultService("car care service");
+    </script>
+</body>
+</html>

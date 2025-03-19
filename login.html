@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            color:white;
+            
+        }
+        body{
+            background-image: url("./images/bg_image.jpg");
+            width:100%;
+            height:100vh;
+            background-position: center;
+        }
+        .loginform{
+            text-align: center;
+            width:700px;
+            height:auto;
+            padding:20px;
+            margin:0 auto;
+            margin-top:10px;
+            margin-bottom: 50px;
+            box-sizing: border-box;
+            display:block;
+            justify-content: center;
+            align-items: center;
+            border:2px solid red;
+        }
+        h2{
+            color:red;
+        }
+        ::placeholder{
+            color:rgb(207, 75, 75);
+        }
+        form{
+            background-color:none;
+        }
+        .form_title h1,h2{
+            display:flex;
+            margin:0 auto;
+            justify-content: center;
+            align-items: center;
+            padding:10px;
+            color:white;
+        }
+        .form_title h1{
+            color:red;
+        }
+        h1{
+            color:white;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            padding-top:20px;
+        }
+        input{
+            margin:0 auto;
+            width:200px;
+            padding:5px;
+            justify-content: center;
+            align-items: center;
+            color:black;
+        }
+        label{
+
+            position:relative;
+            display:inline-flex;
+            margin:0 55px;
+            justify-content: center;
+            align-items: center;
+        }
+        .forget{
+            margin-left:60px;
+            text-decoration: none;
+            color:red;
+        }
+        button{
+            margin:0 auto;
+            display:flex;
+            border:2px solid red;
+            padding-top:8px;
+            padding-bottom: 8px;
+            padding-left:10px;
+            padding-right:10px;
+            background-color: red;
+            color:white;
+            font-size: 18px;
+        }
+        button:hover{
+            color:red;
+            background-color: white;
+            border:2px solid white;
+            box-sizing: border-box;
+            cursor: pointer;
+            font-size:20px;
+        }
+        
+        .signup{
+            display:flex;
+            margin:0 auto;
+            justify-content: center;
+        }
+        .adminlogin{
+            display:flex;
+            margin:0 auto;
+            justify-content: center;
+        }
+
+        .popup{
+            top:-100px;
+            transform-origin: 20px 20px;
+            animation:drop 1s ease forwards,
+                      swing 1s 3s ease forwards;
+        }
+
+        @keyframes drop{
+            0%{opacity:0}
+            50%{transform:translate(50px)}
+            100%{transform:translateY(40px);opacity:1;}
+        }
+        @keyframes swing{
+            0%{transform:translateY(40px) rotateY(30deg)}
+            40%{transform:translateY(40px) rotateY(100deg)}
+            60%{transform:translateY(40px) rotateY(200deg)}
+            100%{transform:translateY(40px) rotateY(360deg)}
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="popup">
+    <h1 style="text-shadow:2px 5px red;">LOGIN FORM</h1>
+    <div class="loginform">
+        <div class="form_title">
+            <h1>Your trusted Auto-Partner</h1>
+            <p>Get exclusive access to your vehicle's repair history and schedule appointments with ease.</p>
+        </div>
+        <br>
+        <form id="loginForm">
+            <div>
+                <label for="Username">UserName :</label>
+                <input type="text" name="username" placeholder="Username" required>
+
+                <br><br>
+                <label for="password">Password :</label>
+                <input type="password"name="password" placeholder="Password" required>
+
+                <br><br>
+                <input type="checkbox">Remember Me
+            </div>
+
+            <br>
+            <p><a href="#" class="forget">Forgot password ?</a></p>
+            <br>
+
+            <a href="services.html" style="text-decoration: none;"><button value="Login">Login</button></a>
+            <br><br>
+            <a href="reports.html" class="adminlogin" id="adminContent" style="text-decoration:none";>Login as Admin</a></button>
+            <br>
+            <a href="register.html" class="signup" style="text-decoration: none";>Not a member? SignUp now</a></button>
+        </form>
+    </div>
+</div>
+
+<script>
+    async function login() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    try {
+        const response = await fetch('users.json');
+        const users = await response.json();
+
+        const user = users.find(user => user.username === username && user.password === password);
+
+        if (user) {
+            alert('Login successful!');
+            sessionStorage.setItem('username', user.username);
+            sessionStorage.setItem('role', user.role);
+            location.assign('home.html');
+        } else {
+            alert('Invalid username or password');
+        }
+    } catch (error) {
+        console.error('Error fetching users:', error);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const username = sessionStorage.getItem('username');
+    const role = sessionStorage.getItem('role');
+
+    if (username) {
+        const navbar = document.createElement('nav');
+        navbar.innerHTML = `<span>Welcome, ${username}</span>`;
+
+        switch (role) {
+            case 'admin':
+                navbar.innerHTML += `
+                    <a href="reports.html">Reports</a>
+                    <a href="logout.html">Logout</a>
+                `;
+                break;
+            default:
+                navbar.innerHTML += `
+                    <a href="services.html">Services</a>
+                    <a href="booking.html">Booking</a>
+                    <a href="logout.html">Logout</a>
+                `;
+                break;
+        }
+
+        document.body.prepend(navbar);
+    }
+});
+
+</script>
+</body>
+</html>

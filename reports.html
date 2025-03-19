@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports</title>
+</head>
+<style>
+    *{
+        padding:0px;
+        margin:0px;
+    }
+    h1{
+        color:red;
+        text-align: center;
+        margin:0 auto;
+        margin:
+    }
+   table{
+    width:100%;
+    text-align: center;
+    border-collapse: collapse;
+    border:2px solid red;
+    border-radius: 5px;
+   }
+   td,th,tr{
+    padding:10px;
+    margin:5px;
+   }
+
+</style>
+<body>
+    <h1>Reports of the customers</h1>
+
+    <div class="container hidden" id="adminContent">
+        <table border="1">
+            <tr>
+                <th>Name</th>
+                <th>Service</th>
+                <th>Date</th>
+                <th>Status</th>
+            </tr>
+        
+            <tr>
+                <td>Dhivya</td>
+                <td>Car care service</td>
+                <td>24/11/2024</td>
+                <td>Pending</td>
+            </tr>
+            <tr>
+                <td>Kavya</td>
+                <td>Car washing</td>
+                <td>11/01/2025</td>
+                <td>Completed</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        const isAdminLoggedIn = true; 
+
+        window.onload = function () {
+            const adminContent = document.getElementById('adminContent');
+            if (isAdminLoggedIn) {
+                adminContent.classList.remove('hidden');
+            } else {
+                alert('Access denied. Admins only.');
+            }
+        };
+    </script>
+</body>
+</html>

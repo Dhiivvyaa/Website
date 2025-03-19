@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <style>
+        * {
+            box-sizing: border-box
+        }
+        body{
+            background-image: url("./images/bgimg5.avif");
+            background-repeat:no-repeat;
+            background-size:cover;
+            background-position: center;
+            width:100%;
+            height:auto;
+            color:white;
+            
+        }
+        .mySlides {
+            display: none
+        }
+        img {
+            vertical-align: middle;
+            width:500px;
+            height:300px;
+            margin:0 auto;
+            justify-content: center;
+            align-items: center;
+            display:flex;
+            border:3px solid red;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        
+        .slideshow-container {
+        max-width: 1000px;
+        position: relative;
+        margin: auto;
+        }
+
+        .slideshow-container div h3{
+            color:white;
+            margin:15px  auto;
+            justify-content: center;
+            display:flex; 
+        }
+        .slideshow-container div a{
+            text-decoration: none;
+        }
+
+        .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color:red;
+        font-weight: bold;
+        font-size: 24px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+        }
+
+        .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+        }
+        .prev:hover, .next:hover {
+        background-color: rgba(0,0,0,0.8);
+        }
+
+        .text {
+        color: black;
+        font-size: 15px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+        }
+        .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: red;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+        }
+
+        .active, .dot:hover {
+        background-color:white;
+        }
+        .fade {
+        animation-name: fade;
+        animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+        from {opacity: .4} 
+        to {opacity: 1}
+        }
+
+        /* header */
+        header h1{
+            color:red;
+            text-shadow: 2px 2px black;
+            margin:0 auto;
+            display:flex;
+            text-align: center;
+            justify-content: center;
+        }
+        header p{
+            margin:0 auto;
+            display:flex;
+            text-align: center;
+            justify-content: center;
+            padding:10px;
+            margin-top:10px;
+            margin-bottom: 10px;
+            margin-left:120px;
+            margin-right:120px;
+        }
+        .offer{
+          text-align:center;
+          margin:10px;
+        }
+        .offer h1{
+          color:red;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Services</h1>
+        <p>At Everyday Car Care, we pride ourselves on delivering high-quality, reliable automotive repair and maintenance services. With years of experience and a passion for cars, our expert mechanics are dedicated to keeping your vehicle in top condition, whether it’s a routine oil change or a major repair.</p>
+    </header>
+
+    <main>
+
+      <div class="offer">
+        <h1>Special Offer !!!</h1>
+        <h3>Car care service + Body repair service + Preventive maintenance service @ 999 only</h3>
+        <h5>Rs.100 discount on next service done within this month!</h5>
+        <p>Hurry up! The offer expires in:</p>
+        <div class="timer" id="timer">10:00</div>
+       </div>
+
+        <div class="service">
+        <!-- <h2>Car Care services</h2> -->
+        <div class="slideshow-container">
+
+            <div class="mySlides fade">
+              <a href="./car-care-service.html"> <img src="./images/paint_protection.jfif"><h3>Car Care Services</h3></a>
+            </div>
+            
+            <div class="mySlides fade">
+              <a href="./body repair services.html"><img src="./images/bumper repair.jfif">
+              <h3>Body Repair Service</h3></a>
+            </div>
+            
+            <div class="mySlides fade">
+              <a href="./preventive maintenance service.html"><img src="./images/airbad deployment.jfif">
+              <h3>Preventive Maintenance Service</h3></a>
+            </div>
+            
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+            
+            </div>
+            <br>
+            
+            <div style="text-align:center">
+              <span class="dot" onclick="currentSlide(1)"></span> 
+              <span class="dot" onclick="currentSlide(2)"></span> 
+              <span class="dot" onclick="currentSlide(3)"></span> 
+            </div>
+        </div>
+
+       
+    </main>
+       <script>
+          function startTimer(duration, display) {
+            let timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = 0;
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+            let tenMinutes = 60 * 10,
+                display = document.querySelector('#timer');
+            startTimer(tenMinutes, display);
+        };
+
+
+
+
+            let slideIndex = 1;
+            showSlides(slideIndex);
+            
+            function plusSlides(n) {
+              showSlides(slideIndex += n);
+            }
+            
+            function currentSlide(n) {
+              showSlides(slideIndex = n);
+            }
+            
+            function showSlides(n) {
+              let i;
+              let slides = document.getElementsByClassName("mySlides");
+              let dots = document.getElementsByClassName("dot");
+              if (n > slides.length) {slideIndex = 1}    
+              if (n < 1) {slideIndex = slides.length}
+              for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+              }
+              for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+              }
+              slides[slideIndex-1].style.display = "block";  
+              dots[slideIndex-1].className += " active";
+            }
+            </script>
+</body>
+</html>

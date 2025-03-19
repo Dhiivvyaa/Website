@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            text-align: center;
+            justify-content: center;
+    
+        }
+        body{
+            background-color:none;
+            margin:0 auto;
+            position:absolute;
+            top:110px;
+            left:250px;
+            justify-content: center;
+            align-items: center;
+            background-image: url("images/bg_image.jpg");
+            background-position: center;
+
+        }
+        .signup{
+            color:white;
+            margin:0 auto;
+            justify-content: center;
+            align-items: center;
+            text-shadow: 2px 3px;
+        }
+        .loginform{
+            border:2px solid red;
+            width:700px;
+            height:auto;
+            margin:0 auto;
+            display:block;
+            margin:10px;
+        }
+        .form_title h1,p{
+            color:red;
+            display:flex;
+            margin:0 auto;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form{
+            margin:0 auto;
+            box-sizing: border-box;
+        }
+        label{
+            color:white;
+            display:inline-flex;
+            margin:0 auto;
+
+        }
+        ::placeholder{
+            color:rgb(221, 86, 86);
+        }
+       
+        button{
+            padding:5px;
+            border:2px solid red;
+            background-color: red;
+            color:white;
+            margin-bottom:10px;
+        }
+    </style>
+</head>
+<body>
+    <h2 class="signup">SIGNUP FORM</h2>
+    <div class="loginform">
+        <div class="form_title">
+            <h1>Your trusted Auto-Partner</h1>
+            <br>
+            <p style="color:white">Get exclusive access to your vehicle's repair history and schedule appointments with ease</p>
+        </div>
+        <br>
+        <form id="signupForm">
+            <label for="username">UserName: </label>
+            <input type="text" id="username"name="username" placeholder="Username" required>
+            <br>
+            <br>
+
+            <label for="password">Password: </label>
+            <input type="password"name="password" placeholder="Password" id="password"required>
+            <br>
+            <br>
+
+            <label for="confirm_password">Confirm password: </label>
+            <input type="password"name="confirm_password" placeholder="ConfirmPassword" id="confirm_password" required>
+            <br>
+            <br>
+            <a href="./services.html"><button type="button"onclick="signup()">SignUp</button></a>
+        </form>
+    </div>
+
+    <script>
+        async function signup() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirm_password').value;
+
+    if (password !== confirmPassword) {
+        alert('Passwords do not match');
+        return;
+    }
+
+    try {
+        const response = await fetch('users.json');
+        const users = await response.json();
+
+        const userExists = users.some(user => user.username === username);
+
+        if (userExists) {
+            alert('Username is already taken');
+        } else {
+            alert('Sign up successful!');
+            sessionStorage.setItem('username', username);
+            location.assign('home.html');
+        }
+    } catch (error) {
+        console.error('Error fetching users:', error);
+    }
+}
+    </script>
+</body>
+</html>

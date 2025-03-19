@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Status</title>
+    <style>
+        body {
+            text-align: center;
+            padding: 0;
+            margin:0;
+            background-image: url("./images/bgimg3.jpg");
+        }
+        .form{
+            width:500px;
+            height:auto;
+            display:flex;
+            border:3px solid black;
+            border-radius:5px;
+            margin:0 auto;
+            margin-top:80px;
+            padding-bottom:20px;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: red;
+        }
+        .form h1{
+            color:red;
+            text-shadow: 4px 4px black;
+        }
+        .form p{
+            color:white;
+        }
+        #ratingsec {
+            display: none;
+            margin-top: 10px;
+        }
+        #ratingsec h2{
+            color:red;
+            text-shadow: 4px 3px white;
+        }
+        .message {
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+        }
+        label{
+            color:white;
+        }
+        input{
+            border:2px solid white;
+            color:black;
+        }
+        button{
+            border:2px solid black;
+            background-color: black;
+            color:white;
+            border-radius: 5px;
+            padding:6px;
+        }
+    </style>
+</head>
+<body>
+   <div class="form">
+    <h1>...Booking Status...</h1>
+    <p>You're all set! Booking confirmed.</p>
+
+    <div id="confirmmsg" class="message">
+        Booking in progress... Please wait for confirmation.
+    </div>
+
+    <div id="ratingsec">
+        <h2>Rate Your Booking</h2>
+        <label for="rating">Please rate us from 1 to 5:</label>
+        <input type="number" id="rating" name="rating" min="1" max="5" required>
+        <br><br>
+        <button onclick="submitRating()">Submit Rating</button>
+    </div>
+    <br>
+    <div id="final-message"></div>
+ </div>
+    
+
+    <script>
+
+        setTimeout(() => {
+            document.getElementById("confirmmsge").textContent = "Your booking is confirmed! Please wait for a minute...";
+        }, 500); 
+
+        const userName = prompt("Enter your name");
+        
+        setTimeout(() => {
+            document.getElementById("ratingsec").style.display = "block";
+        }, 1000);
+
+       
+        function submitRating() {
+            const rating = document.getElementById("rating").value;
+            const finalMessage = document.getElementById("final-message");
+
+            if (rating >= 1 && rating <= 5) {
+                const finalMessage = document.getElementById("final-message");
+                finalMessage.textContent = "Your input matters! Thank you for helping us to enhance our services.";
+                finalMessage.style.color = "white";
+
+                alert("Booking done. You can exit");
+                setTimeout(function(){
+                    window.location.href = "logout.html"
+                },1000);  
+            } else {
+                alert("Please provide a rating between 1 - 5");
+                document.getElementById("setTimeout").style.display = "block"; 
+            }
+
+            document.getElementById("ratingsec").style.display = "none";
+        }
+
+
+
+    </script>
+
+</body>
+</html>

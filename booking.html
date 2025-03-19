@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookings</title>
+    <style>
+        *{ 
+            margin:0;
+            padding:0;
+            color:white;
+            width:400px;
+            margin:0 auto;
+            align-items: center;
+            justify-content: center;
+        }
+        h1{
+           margin:15px auto;
+           display:flex; 
+           padding-left:60px;
+           text-align: center;
+           color:red;
+           text-shadow: 2px 4px white;
+        }
+        h3{
+            color:red;
+        }
+        form{
+            display:flex;
+            margin:0 auto;
+            display:block;
+            position:relative;
+            justify-content: center;
+            padding:40px;
+            border:2px solid white;
+            background-color: none;
+            margin:30px;
+            
+        }
+        label{
+            color:white;
+        }
+        input{
+            color:black;
+            border:2px solid white;
+            width:200px;
+            padding:5px;
+        }
+        textarea{
+            margin:0 auto;
+            border:2px solid white;
+            width:400px;
+            justify-content: center;
+            align-items: center;
+            color:red;
+        }
+        .checkbox-group{
+            flex-direction:row;
+           align-items:center;
+        }
+
+        .checkbox-group label{
+            margin-left:10px;
+            text-align: start;
+        }
+
+        ::placeholder{
+            color:red;
+        }
+        select{
+            width:200px;
+            padding:7px;
+            color:red;
+        }
+
+        option{
+            color:red;
+            background-color: black;
+        }
+        option:hover{
+            color:black;
+            background-color: red;
+        }
+
+        button{
+            text-align: center;
+            display:flex;
+            width:200px;
+            border:2px solid red;
+            background-color: red;
+            padding:2px;
+            font-size: 25px;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: black;
+            color:red;
+            border:3px solid red;
+            font-size:28px;
+        }
+        body{
+            background-image: url("./images/bgimg2.jpg");
+            background-color: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="bookingform">
+        <h1>ONLINE SERVICE BOOKING FORM</h1>
+        <form method="post">
+            <h3>Customer Information</h3>
+            <br>
+            
+            <label for="name">Name :</label>
+            <input type="text" placeholder="Type your Name" required>
+            <br><br>
+
+            <label for="phoneno">Phone Number :</label>
+            <input type="number" placeholder="Enter your Phone Number" required>
+            <br><br>
+
+            <label for="Address">Address : </label>
+            <input type="address" placeholder="Residential address" required>
+            <br><br>
+
+            <h3>Booking details</h3>
+            <br>
+
+            <label for="date">Appointment Date :</label>
+            <input type="date" placeholder="Appointment Booking Date" id="appointmentDate" required oninput="validateDate()">
+            <p id="errorMessage" style="color: white; display: none;">Please select a future date.</p>
+            <br><br>
+
+            <label for="Vehicletype">Vehicle Type :</label>
+            <select>
+                <option>Four wheeler</option>
+                <option>Two wheeler</option>
+                <option>Six wheeler</option>
+            </select>
+            <br><br>
+
+            <label for="Vehiclemake">Vehicle Make :</label>
+            <select>
+                <option>Made in India</option>
+                <option>Made in Japan</option>
+                <option>Made in China</option>
+            </select>
+            <br><br>
+
+            <label for="Vehiclemodel">Vehicle Model :</label>
+            <select>
+                <option>Honda</option>
+                <option>Toyota</option>
+                <option>Ford</option>
+            </select>
+            <br><br>
+
+            <label for="servicetype" class="checkbox">Type of service:</label>
+            <br><br>
+            <div class="checkbox-group">
+            </select>
+             <input type="checkbox" id="bodyrepair">body repair service
+             <br>
+             <input type="checkbox" id="preventive">Preventive maintenance service
+             <br>
+             <input type="checkbox" checked>Wheel Alignment & balancing
+             <br>
+             <input type="checkbox"id="carcare">Car-care-services
+             <br>
+             <input type="checkbox">Check the battery
+             <br>
+             <input type="checkbox">Car full/body wash
+             <br>
+             <input type="checkbox">check lights & wipers
+            </div>
+        </select>
+             <br><br>
+
+             <label>Anything else :</label>
+             <br><br>
+             <textarea>feedbacks or comments can be entered here...</textarea>
+             <br><br>
+
+             <button><a href="./booking-success.html" style="text-decoration: none;">Book Now!</a></button>
+            
+        </form>
+    </div>
+    <script>
+        function validateDate() {
+            const appointmentDate = document.getElementById("appointmentDate").value;
+            const errorMessage = document.getElementById("errorMessage");
+            const today = new Date().toISOString().split('T')[0];
+
+            if (appointmentDate < today) {
+                errorMessage.style.display = 'block';
+            } else {
+                errorMessage.style.display = 'none';
+            }
+            localStorage.setItem('appointmentDate', appointmentDate);
+        }
+    </script>
+</body>
+</html>
